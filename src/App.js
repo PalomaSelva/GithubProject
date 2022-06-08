@@ -1,12 +1,12 @@
 import React from 'react';
 import {View,Image,Text,StyleSheet,SafeAreaView,StatusBar} from 'react-native';
+import Pressable from 'react-native/Libraries/Components/Pressable/Pressable';
 
 const imageProfile = "https://avatars.githubusercontent.com/u/101755192?v=4"
  const bnewLocal = 'white'
 
 const App = ()=> {
-  
-    
+   
     return (
         <SafeAreaView style={style.container}>
             <StatusBar backgroundColor={'#14161c'} barStyle="light-content"></StatusBar>
@@ -17,9 +17,11 @@ const App = ()=> {
                 <Text style={[style.bio, style.defaultFont]} accessibilityLabel="Bio">Web developer - HTML | CSS | JS</Text>
 
             </View>
-            <View style={style.button}>
-                <Text style={[style.defaultFont,{fontSize:22,textAlign:'center'} ]}>Open in Github</Text>
-            </View>
+            <Pressable>
+                <View style={style.button}>
+                    <Text style={[style.defaultFont,{fontSize:22,textAlign:'center'} ]}>Open in Github</Text>
+                </View>
+            </Pressable>
         </SafeAreaView>
     );
 };
