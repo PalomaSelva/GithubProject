@@ -1,27 +1,25 @@
 import React from 'react';
-import {View,Image,Text,StyleSheet,SafeAreaView,StatusBar} from 'react-native';
-import Pressable from 'react-native/Libraries/Components/Pressable/Pressable';
+import {View,Pressable,Image,Text,StyleSheet,SafeAreaView,StatusBar} from 'react-native';
 
 const imageProfile = "https://avatars.githubusercontent.com/u/101755192?v=4"
- const bnewLocal = 'white'
-
+ 
 const App = ()=> {
    
     return (
         <SafeAreaView style={style.container}>
-            <StatusBar backgroundColor={'#14161c'} barStyle="light-content"></StatusBar>
+            <StatusBar backgroundColor={'#14161c'} barStyle="light-content"/>
             <View style={style.content}>
                 <Image source={{uri:imageProfile}} style={style.avatar} accessibilityLabel="Foto de Paloma Selva" />  
                 <Text style={[style.usuario, style.defaultFont]} accessibilityLabel="Nome Paloma Selva">Paloma Selva</Text>
                 <Text style={[style.nickname, style.defaultFont]} accessibilityLabel="Nickname PalomaSelva">PalomaSelva</Text>
                 <Text style={[style.bio, style.defaultFont]} accessibilityLabel="Bio">Web developer - HTML | CSS | JS</Text>
 
+                <Pressable onPress={() => console.log('github')} >
+                    <View style={style.button}>
+                        <Text style={[style.defaultFont,{fontSize:22,textAlign:'center'}]}>Open in Github</Text>
+                    </View> 
+                </Pressable>
             </View>
-            <Pressable>
-                <View style={style.button}>
-                    <Text style={[style.defaultFont,{fontSize:22,textAlign:'center'} ]}>Open in Github</Text>
-                </View>
-            </Pressable>
         </SafeAreaView>
     );
 };
@@ -81,5 +79,6 @@ const style = StyleSheet.create({
     marginLeft:'auto',
     marginRight:'auto',
     marginTop:20,
+
 }
 })
