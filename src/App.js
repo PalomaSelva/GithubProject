@@ -1,10 +1,15 @@
 import React from 'react';
-import {View,Pressable,Image,Text,StyleSheet,SafeAreaView,StatusBar} from 'react-native';
+import {View,Pressable,Image,Text,StyleSheet,SafeAreaView,StatusBar,Linking} from 'react-native';
 
 const imageProfile = "https://avatars.githubusercontent.com/u/101755192?v=4"
- 
-const App = ()=> {
-   
+
+const urltoGithub = 'https://github.com/PalomaSelva'
+
+const App = ()=> {   
+
+    const handlePressGoToMyGithub = ()=>{
+        Linking.canOpenURL(urltoGithub)
+}
     return (
         <SafeAreaView style={style.container}>
             <StatusBar backgroundColor={'#14161c'} barStyle="light-content"/>
