@@ -2,17 +2,23 @@ import React from 'react';
 import {View,Image,Text,StyleSheet,SafeAreaView,StatusBar} from 'react-native';
 
 const imageProfile = "https://avatars.githubusercontent.com/u/101755192?v=4"
+ const bnewLocal = 'white'
 
 const App = ()=> {
+  
+    
     return (
         <SafeAreaView style={style.container}>
             <StatusBar backgroundColor={'#14161c'} barStyle="light-content"></StatusBar>
             <View style={style.content}>
-                <Image source={{uri:imageProfile}} style={style.avatar} accessibilityLabel="Paloma Selva" />  
-                <Text style={[style.usuario, style.defaultFont]}>Paloma Selva</Text>
-                <Text style={[style.nickname, style.defaultFont]}>PalomaSelva</Text>
-                <Text style={[style.bio, style.defaultFont,]}>Web developer / Mobile developer - HTML | CSS | JS | React-Native</Text>
+                <Image source={{uri:imageProfile}} style={style.avatar} accessibilityLabel="Foto de Paloma Selva" />  
+                <Text style={[style.usuario, style.defaultFont]} accessibilityLabel="Nome Paloma Selva">Paloma Selva</Text>
+                <Text style={[style.nickname, style.defaultFont]} accessibilityLabel="Nickname PalomaSelva">PalomaSelva</Text>
+                <Text style={[style.bio, style.defaultFont]} accessibilityLabel="Bio">Web developer - HTML | CSS | JS</Text>
 
+            </View>
+            <View style={style.button}>
+                <Text style={[style.defaultFont,{fontSize:22,textAlign:'center'} ]}>Open in Github</Text>
             </View>
         </SafeAreaView>
     );
@@ -28,8 +34,8 @@ const style = StyleSheet.create({
     },  
 
     avatar:{
-    height:300,
-    width:300,
+    height:280,
+    width:280,
     borderRadius:300,
     borderColor:'white',
     borderWidth:3,
@@ -59,10 +65,19 @@ const style = StyleSheet.create({
     fontSize:22,
     color:'#F0F3F6',
     fontWeight:'300',
+    padding:5,
     },
 
     bio:{
     fontSize:18,
     fontWeight:'300',
 },
+    button:{
+    backgroundColor:'#272b33',
+    borderRadius:20,
+    padding:25,
+    marginLeft:'auto',
+    marginRight:'auto',
+    marginTop:20,
+}
 })
