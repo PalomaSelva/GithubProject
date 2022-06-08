@@ -3,13 +3,19 @@ import {View,Pressable,Image,Text,StyleSheet,SafeAreaView,StatusBar,Linking} fro
 
 const imageProfile = "https://avatars.githubusercontent.com/u/101755192?v=4"
 
-const urltoGithub = 'https://github.com/PalomaSelva'
+const urlToMyGithub = 'https://github.com/PalomaSelva'
 
 const App = ()=> {   
 
-    const handlePressGoToMyGithub = ()=>{
-        Linking.canOpenURL(urltoGithub)
-}
+    const handlePressGoToMyGithub = async () => {
+        console.log('Verificando link');
+        const res = await Linking.canOpenURL(urlToMyGithub);
+        if (res) {
+        console.log('Link aprovado');
+        console.log('Abrindo link....');
+        await Linking.openURL(urlToMyGithub);
+        }
+    };
     return (
         <SafeAreaView style={style.container}>
             <StatusBar backgroundColor={'#14161c'} barStyle="light-content"/>
@@ -19,7 +25,7 @@ const App = ()=> {
                 <Text style={[style.nickname, style.defaultFont]} accessibilityLabel="Nickname PalomaSelva">PalomaSelva</Text>
                 <Text style={[style.bio, style.defaultFont]} accessibilityLabel="Bio">Web developer - HTML | CSS | JS</Text>
 
-                <Pressable onPress={() => console.log('github')} >
+                <Pressable onPress={handlePressGoToMyGithub} >
                     <View style={style.button}>
                         <Text style={[style.defaultFont,{fontSize:22,textAlign:'center'}]}>Open in Github</Text>
                     </View> 
